@@ -182,7 +182,7 @@ async fn do_client(cmd: opts::ClientCmd, wlan_svc: WlanSvc) -> Result<(), Error>
             handle_connect_transaction(local).await
         }
         opts::ClientCmd::Disconnect { iface_id } => {
-            get_client_sme(wlan_svc, iface_id).await?;
+            get_client_sme(wlan_svc, iface_id).await?
                 .disconnect().await
                 .map_err(|e| format_err!("error sending disconnect request: {}", e))
         }
